@@ -73,9 +73,9 @@ The weights, biases and test_data were fed into the sources.
 ```verilog
 assign relu_out = (sum[31]) ? 16'd0 : sum[23:8];
 ```
-### Making the layer module (Multiple neurons in parallel)
+## Making the layer module (Multiple neurons in parallel)
 Designed by combining multiple neuron modules to operate as a single computational unit. Each neuron in the layer receives the same input data but uses its own set of weights and bias values to perform independent MAC operations followed by activation . The outputs of all neurons are computed in parallel (or sequentially based on design constraints) and collectively form the output vector of the layer, and are presented as output.
 
-### Final Output Layer (NN_TOP)
+## Final Output Layer (NN_TOP)
 
 The NN_TOP module represents the complete neural network by integrating the hidden layer and the 3-neuron-output layer into a single top-level design. It manages the data flow between layers, feeds inputs through the network, and collects the final outputs. It processes the results from the hidden layer to produce classification scores for each class. The final prediction corresponds to the neuron with the highest output value, effectively implementing a hardware-based inference of the neural network.
